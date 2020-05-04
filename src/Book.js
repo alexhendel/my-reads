@@ -10,23 +10,23 @@ const Book = (props) => {
         <div
           className="book-cover"
           style={{
-            width: props.data.width ? props.data.width : 128, // 128,
-            height: props.data.height ? props.data.height : 193, // 193,
-            backgroundImage: props.data.imageLinks.thumbnail
-              ? `url("${props.data.imageLinks.thumbnail}")`
+            width: props.book.width ? props.book.width : 128, // 128,
+            height: props.book.height ? props.book.height : 193, // 193,
+            backgroundImage: props.book.imageLinks.thumbnail
+              ? `url("${props.book.imageLinks.smallThumbnail}")`
               : '',
           }}
         ></div>
         <BookshelfChanger />
       </div>
-      <div className="book-title">{props.data.title}</div>
-      <div className="book-authors">{props.data.author}</div>
+      <div className="book-title">{props.book.title}</div>
+      <div className="book-authors">{props.book.authors.join(', ')}</div>
     </div>
   );
 };
 
 Book.propTypes = {
-  data: PropTypes.object.isRequired,
+  book: PropTypes.object.isRequired,
 };
 
 export default Book;
