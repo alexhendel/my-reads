@@ -29,7 +29,7 @@ class BooksApp extends React.Component {
       <div className="app">
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={BookList}>
+            <Route exact path="/">
               <BookList bookLists={this.state.bookLists} />
             </Route>
             <Route exact path="/search">
