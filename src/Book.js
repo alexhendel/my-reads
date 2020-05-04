@@ -12,8 +12,8 @@ const Book = (props) => {
           style={{
             width: props.data.width ? props.data.width : 128, // 128,
             height: props.data.height ? props.data.height : 193, // 193,
-            backgroundImage: props.data.coverImageUrl
-              ? `url("${props.data.coverImageUrl}")`
+            backgroundImage: props.data.imageLinks.thumbnail
+              ? `url("${props.data.imageLinks.thumbnail}")`
               : '',
           }}
         ></div>

@@ -9,9 +9,13 @@ const BookList = (props) => {
     <div className="list-books">
       <BookListTitle title="MyReads" />
       <div className="list-books-content">
-        {props.bookLists ? (
-          props.bookLists.map((list) => (
-            <Bookshelf title={list.title} books={list.books} />
+        {props.shelfs ? (
+          props.shelfs.map((list) => (
+            <Bookshelf
+              key={list.id}
+              title={list.title}
+              books={props.books.filter((book) => book.shelf === list.id)}
+            />
           ))
         ) : (
           <p>Sorry, you have no book lists.</p>
@@ -23,7 +27,8 @@ const BookList = (props) => {
 };
 
 BookList.proptypes = {
-  bookLists: PropTypes.array.isRequired,
+  books: PropTypes.array.isRequired,
+  shelfs: PropTypes.array.isRequired,
 };
 
 export default BookList;

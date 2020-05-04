@@ -1,7 +1,8 @@
 import React from 'react';
 import './BookshelfChanger.css';
+import PropTypes from 'prop-types';
 
-const BookshelfChanger = () => {
+const BookshelfChanger = (props) => {
   return (
     <div className="book-shelf-changer">
       <select>
@@ -15,6 +16,10 @@ const BookshelfChanger = () => {
       </select>
     </div>
   );
+};
+
+BookshelfChanger.propTypes = {
+  shelfList: PropTypes.array,
 };
 
 export default BookshelfChanger;
