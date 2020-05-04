@@ -15,6 +15,7 @@ const BookList = (props) => {
               key={list.id}
               title={list.title}
               books={props.books.filter((book) => book.shelf === list.id)}
+              updateShelfHandler={props.updateShelfHandler}
             />
           ))
         ) : (
@@ -29,6 +30,7 @@ const BookList = (props) => {
 BookList.proptypes = {
   books: PropTypes.array.isRequired,
   shelfs: PropTypes.array.isRequired,
+  updateShelfHandler: PropTypes.func.isRequired,
 };
 
 export default BookList;

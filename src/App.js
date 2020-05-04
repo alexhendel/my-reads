@@ -15,15 +15,28 @@ class BooksApp extends React.Component {
     ],
   };
 
+  constructor(props) {
+    super(props);
+    this.updateShelfHandler = this.updateShelfHandler.bind(this);
+  }
+
   componentDidMount() {
     this.getAllBooks();
   }
 
-  getAllBooks = async () => {
+  getAllBooks = async (prevState) => {
     const books = await BooksAPI.getAll();
-    console.log(books);
-    this.setState({ books });
+    this.setState((prevState) => ({
+      books,
+      shelfs: prevState.shelfs,
+    }));
   };
+
+  updateShelfHandler(book, shelf) {
+    console.log(`Update book ${book} to shelf: ${shelf}.`);
+    // await BooksAPI.update(book, shelf);
+    // this.getAllBooks();
+  }
 
   render() {
     return (
@@ -31,7 +44,11 @@ class BooksApp extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/">
-              <BookList books={this.state.books} shelfs={this.state.shelfs} />
+              <BookList
+                books={this.state.books}
+                shelfs={this.state.shelfs}
+                updateShelfHandler={this.updateShelfHandler}
+              />
             </Route>
             <Route exact path="/search">
               <Search />

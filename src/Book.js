@@ -17,7 +17,10 @@ const Book = (props) => {
               : '',
           }}
         ></div>
-        <BookshelfChanger />
+        <BookshelfChanger
+          book={props.book}
+          updateShelfHandler={props.updateShelfHandler}
+        />
       </div>
       <div className="book-title">{props.book.title}</div>
       <div className="book-authors">{props.book.authors.join(', ')}</div>
@@ -27,6 +30,7 @@ const Book = (props) => {
 
 Book.propTypes = {
   book: PropTypes.object.isRequired,
+  updateShelfHandler: PropTypes.func.isRequired,
 };
 
 export default Book;
