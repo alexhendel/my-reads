@@ -32,11 +32,11 @@ class BooksApp extends React.Component {
     }));
   };
 
-  updateShelfHandler(book, shelf) {
-    console.log(`Update book ${book} to shelf: ${shelf}.`);
+  updateShelfHandler = (book, shelf) => {
+    console.log(`Update book ${book.id} to shelf: ${shelf}.`);
     // await BooksAPI.update(book, shelf);
     // this.getAllBooks();
-  }
+  };
 
   render() {
     return (
