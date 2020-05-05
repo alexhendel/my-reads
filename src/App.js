@@ -33,7 +33,6 @@ class BooksApp extends React.Component {
   };
 
   updateShelfHandler = async (book, shelf) => {
-    console.log(`Update book ${book.id} to shelf: ${shelf}.`);
     await BooksAPI.update(book, shelf);
     this.getAllBooks();
   };
@@ -51,7 +50,7 @@ class BooksApp extends React.Component {
               />
             </Route>
             <Route exact path="/search">
-              <Search />
+              <Search updateShelfHandler={this.updateShelfHandler} />
             </Route>
           </Switch>
         </BrowserRouter>

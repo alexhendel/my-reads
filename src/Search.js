@@ -18,7 +18,6 @@ class Search extends Component {
       const results = await BooksAPI.search(event.target.value);
       if (results) {
         this.setState({ results });
-        console.log(results);
       }
     } else {
       this.setState({ results: [] });
