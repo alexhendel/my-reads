@@ -10,8 +10,8 @@ const Book = (props) => {
         <div
           className="book-cover"
           style={{
-            width: props.book.width ? props.book.width : 128, // 128,
-            height: props.book.height ? props.book.height : 193, // 193,
+            width: props.book.width ? props.book.width : 128, // 128 = default,
+            height: props.book.height ? props.book.height : 193, // 193 = default,
             backgroundImage: props.book.imageLinks.thumbnail
               ? `url("${props.book.imageLinks.smallThumbnail}")`
               : '',
