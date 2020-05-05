@@ -6,7 +6,7 @@ const BookshelfChanger = (props) => {
   return (
     <div className="book-shelf-changer">
       <select
-        defaultValue="move"
+        value={props.book.shelf ? props.book.shelf : 'move'}
         onChange={(event) =>
           props.updateShelfHandler(props.book, event.target.value)
         }
