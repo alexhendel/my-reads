@@ -50,7 +50,10 @@ class BooksApp extends React.Component {
               />
             </Route>
             <Route exact path="/search">
-              <Search updateShelfHandler={this.updateShelfHandler} />
+              <Search
+                myBooks={this.state.books}
+                updateShelfHandler={this.updateShelfHandler}
+              />
             </Route>
           </Switch>
         </BrowserRouter>
