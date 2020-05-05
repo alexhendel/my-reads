@@ -12,7 +12,7 @@ const Book = (props) => {
           style={{
             width: props.book.width ? props.book.width : 128, // 128 = default,
             height: props.book.height ? props.book.height : 193, // 193 = default,
-            backgroundImage: props.book.imageLinks.thumbnail
+            backgroundImage: props.book.imageLinks
               ? `url("${props.book.imageLinks.smallThumbnail}")`
               : '',
           }}
@@ -23,7 +23,9 @@ const Book = (props) => {
         />
       </div>
       <div className="book-title">{props.book.title}</div>
-      <div className="book-authors">{props.book.authors.join(', ')}</div>
+      <div className="book-authors">
+        {props.book.authors ? props.book.authors.join(', ') : ''}
+      </div>
     </div>
   );
 };
