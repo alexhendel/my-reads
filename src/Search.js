@@ -55,7 +55,7 @@ class Search extends Component {
   }
 }
 
-Bookshelf.propTypes = {
+Search.propTypes = {
   updateShelfHandler: PropTypes.func.isRequired,
 };
 
