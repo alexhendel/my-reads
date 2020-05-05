@@ -1,6 +1,6 @@
 # MyReads Project
 
-This is a project developed for my React course on [Udacity](https://www.udacity.com/course/react-nanodegree--nd019). The app allows you to organize your your books in categories: Currently Reading, Want to Read and Read.
+This is a project developed for my React course on [Udacity](https://www.udacity.com/course/react-nanodegree--nd019). The app allows you to organize your books in categories: Currently Reading, Want to Read and Read.
 
 The app was based on the starter template found [here](https://github.com/udacity/reactnd-project-myreads-starter).
 
