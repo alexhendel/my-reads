@@ -10,13 +10,25 @@ class Search extends Component {
     results: [],
   };
 
-  updateSearch = async (event) => {
-    console.log(event.target.value);
+  constructor(props) {
+    super(props);
+    this.updateSearch = this.updateSearch.bind(this);
+  }
 
+  updateSearch = async (event) => {
     const searchString = event.target.value;
     if (searchString && searchString.length > 0) {
-      const results = await BooksAPI.search(event.target.value);
+      let results = await BooksAPI.search(event.target.value);
+
       if (results && !results.error) {
+        // merge search results with myBooks prop for shelf information on the search results
+        results = results.map((book) => {
+          const myBook = this.props.myBooks.filter(({ id }) => id === book.id);
+
+          return Object.assign({}, book, {
+            shelf: myBook[0] ? myBook[0].shelf : 'none',
+          });
+        });
         this.setState({ results });
       } else {
         this.setState({ results: [] });
@@ -56,6 +68,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
+  myBooks: PropTypes.array.isRequired,
   updateShelfHandler: PropTypes.func.isRequired,
 };
 
