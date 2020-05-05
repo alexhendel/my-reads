@@ -21,7 +21,7 @@ const Bookshelf = (props) => {
             ))}
           </ol>
         ) : (
-          <p>This shelf is empty.</p>
+          <p>Nothing here yet.</p>
         )}
       </div>
     </>
